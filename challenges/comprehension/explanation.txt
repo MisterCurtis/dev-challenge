@@ -1,0 +1,23 @@
+Basic Explanation:
+The script search through input.txt and returns each alpha numeric grouping of characters (words) once and the number of times it was found.
+
+@ = associative/map array
+% = string
+$ = array
+
+Detailed Explanation:
+
+First establish how the script should run on command line
+
+Within the main function
+@storage is first set as null preparing it for later use
+while there are lines available in the file "input.txt" they are assigned to %temp
+%temp is then split on each space-character into the array $temp
+$temp then contains each split item (will assume "words") from the currently fetched line from "input.txt"
+
+For each item in $temp, being handled as the string %t. %t is checked against a regular expression that will determine if %t contains any number of upper/lower case letters, or numbers.
+@storage is then checked for the key of the word if it has already been added to @storage matching key is incremented by 1
+if %t is not in @storage, key is set as the current word and its value is assigned to 1.
+
+After iteration of all lines and words, the @storage is looped through
+%a references the key, %b represents the value. The key and value are then printed indicating each "words" instances.
